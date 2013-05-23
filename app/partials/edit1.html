@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactPath">
+<form name="myForm" ng-controller="AddCtrl">
+
+    <div>
+        <input name="name" ng-model="contactdata.name" type="text" placeholder="Name" autocomplete=off required/>
+        <span ng-show="myForm.name.$error.required">Please enter your name?</span>
+    </div>
+    <div>
+        <input name="phone" ng-model="contactdata.phone" autocomplete=off integer type="text" placeholder="Phone"/>
+        <span ng-show="myForm.phone.$error.integer">Enter only numbers</span>
+    </div>
+    <div>
+        <input name="email" ng-model="contactdata.email" ng-class="{error: myForm.email.$error.email}" type="email"
+               autocomplete=off placeholder="Email"/>
+        <span ng-show="myForm.email.$error.email">Enter valid emails?</span>
+    </div>
+    <button ng-click="" 
+            class="btn btn-left">Done
+    </button>
+    <button ng-click="" class="btn btn-danger">Delete</button>
+    </div>
+</form>

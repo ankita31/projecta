@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="BookMark">
+<head>
+    <meta charset="utf-8">
+    <title>miniBookMark</title>
+    <meta name="description" content="A simple bookmark app.">
+     <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/app.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#/">miniBookMark</a>
+            <a href="#/add1/" class="btn btn-success pull-right"><i class="icon-plus icon-white"></i> Add</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span12" ng-view ng-animate="{enter: 'fade-enter'}">
+        </div>
+    </div>
+</div>
+<script src="lib/angular/angular.js"></script>
+	<script src="js/bookmark.js"></script>
+</body>
+</html>

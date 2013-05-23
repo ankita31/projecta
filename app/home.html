@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="navbarapp">
+<head>
+    <meta charset="utf-8" />
+    <title>Twitter Bootstrap Navbar with AngularJS</title>
+<head>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src="js/navbar.js"></script>
+		</head>
+
+<body ng-controller="HomePageCtrl">
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand">Example App</a>
+ 
+            <div class="nav-collapse">
+                <ul class="nav" id="navigation-tabs">     <!-- id added here -->
+                    <li><a href="home.html">Home</a></li>   <!-- removed class='active' -->
+                    <li><a href="second.html">India</a></li>
+                    <li><a href="../third.html">World</a></li>
+                      <li><a href="../third.html">Business</a></li>
+                        <li><a href="../third.html">Tech</a></li>
+                          <li><a href="../third.html">Sports</a></li>
+                            <li><a href="../third.html">Entertainment</a></li>
+                              <li><a href="../third.html">Life & Style</a></li>
+                                <li><a href="../third.html">Women</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <bootstrap-navbar current-tab="Home"></bootstrap-navbar>
+
+    <div class="container">
+        <h1>{{pageName}}</h1>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8">
+		<title>My HTML File</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src="js/crudapp.js"></script>
+		<body ng-controller="FormCtrl">
+			<div class="container">
+				<div class="row">
+					<div class="span12">
+						<legend>
+							EMPLOYEE DETAIL FORM
+							<input ng-model="query" placeholder="Search Employee">
+							</input>
+						</legend>
+					</div>
+				</div>
+				<form name="contactForm" class="form-horizontal">
+					<div class="row">
+						<div class="span 9">
+							<label for="name">Employee Name: </label>
+							<input type="text" ng-model="employee.name" />
+							<label for="empid">Employee Id: </label>
+							<input type="text"ng-model="employee.empid" />
+
+							<label for="email">Email: </label>
+							<input type="text" ng-model="employee.email" id="email" />
+
+							<label for="age">Age: </label>
+							<input type="text" ng-model="employee.age" id="age" />
+
+							<label for="gender">Gender:</label><label class="radio">
+								<input type="radio" ng-model="employee.gender" name="gender" id="op1" value="male" >
+								Male </label><label class="radio">
+								<input type="radio" ng-model="employee.gender" name="gender" id="op2" value="female">
+								Female </label>
+							<label for="salary">Salary: </label>
+							<input type="text" ng-model="employee.salary" id="salary" />
+							<label for="joiningdate">Date of joining : </label>
+							<input id="joiningdate" ng-model="employee.joiningdate" type="date" value=""/>
+							</br>
+						</div>
+
+						<div class="span3">
+
+							<h3>Choose file(s)</h3>
+							<p>
+								<input id="files-upload" type="file">
+							</p>
+							<div id="file-list"><img id="uploadImg" ng-modal="employee.imageSrc" ng-src="{{imageSrc}}" style="width:200px;"></img>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-actions">
+							<div class="span 3">
+
+								<button type="button" class="btn" ng-click="insertRecords()">
+									Create Record
+								</button>
+							</div>
+							<div class="span 3">
+								<button type="button" class="btn" ng-click="updateContact()">
+									Update Record
+								</button>
+							</div>
+							<div class="span 3">
+								<button type="button" class="btn" ng-click="dropTable()">
+									Drop table
+								</button>
+							</div>
+							<div class="span 3">
+								<button type="button" class="btn" ng-click="getContacts()">
+									show record
+								</button>
+							</div>
+
+				</form>
+			</fieldset>
+			Total number of records: {{tableData.length}};
+			</div>
+
+			<select ng-model="sortorder">
+				<option value="">-- sort order --</option>
+				<option value="name">name</option>
+				<option value="empid">empid</option>
+				<option value="empid">email</option>
+				<option value="empid">age</option>
+			</select>
+			<select ng-model="limit">
+				<option value="">-- show 3 per page --</option>
+            <option value='3'>Show 3 per page</option>
+            <option value='6'>Show 6 per page</option>
+            <option value='9'>Show 9 per page</option>
+            
+          </select>
+
+			<table style="width: 100%" border='1'>
+				<thead>
+					<tr>
+						<th><a href="" ng-click="predicate = 'id'; reverse=!reverse">ID</th>
+						<th><a href="" ng-click="predicate = 'name'; reverse=!reverse">Name </th>
+						<th><a href="" ng-click="predicate = 'empid'; reverse=!reverse">Employee Id</th>
+						<th><a href="" ng-click="predicate = 'email'; reverse=!reverse"> Email</th>
+						<th><a href="" ng-click="predicate = 'age'; reverse=!reverse">Age</th>
+						<th><a href="" ng-click="predicate = 'gender'; reverse=!reverse">Gender</th>
+						<th><a href="" ng-click="predicate = 'salary'; reverse=!reverse">Salary</th>
+						<th><a href="" ng-click="predicate = 'joiningdate'; reverse=!reverse">Joining Date</th>
+						<th>Image</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+								<tbody>
+
+					<tr ng-repeat="val in tableData|filter:query|orderBy:sortorder|orderBy:predicate:reverse|limitTo:limit">
+						<td>{{val.id}}</td>
+						<td>{{val.name}}</td>
+						<td>{{val.empid}}</td>
+						<td>{{val.email}}</td>
+						<td>{{val.age}}</td>
+						<td> {{val.gender}}</td>
+						<td>{{val.salary}}</td>
+						<td>{{val.joiningdate}}</td>
+						<td><img ng-src="{{val.image}}" style="width:50px;"></img></td>
+						<td><a ng-click="deleteRecord(val.id)">delete</a></br><a ng-click="editContact(val.id)">edit</a></td>
+					</tr>
+				</tbody>
+
+			</table>
+			</div>
+
+			<script src="./js/upldimg.js"></script>
+		</body>
+
+</html>
+<!--http://www.raymondcamden.com/index.cfm/2011/11/29/My-first-AngularJS-application-->

@@ -1,0 +1,19 @@
+<form name="myForm" class="formdesign">
+	<div>
+		<input name="name" ng-model="name" type="text" placeholder="Name" autocomplete=off required "/>
+		<span ng-show="myForm.name.$error.required">Please enter your  name</span>
+		</div>
+		<div>
+		<input name="phone" ng-model="phone" autocomplete=off integer type="text" placeholder="Phone" />
+		<span ng-show="myForm.phone.$error.integer">Entr only numbers</span>
+		</div>
+		<div>
+		<input name="email" ng-model="email" type="email" autocomplete=off placeholder="Email" />
+		<span ng-show="myForm.email.$error.email">Enter  valid emails</span>
+	</div>
+	<button ng-click="save(contactdata)" ng-disabled="isClean() || myForm.$invalid"
+	class="">
+		Save
+	</button>
+	</div>
+</form>

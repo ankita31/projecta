@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="MyApp">
+<body ng-controller="MainCtrl" >
+   
+    <header>
+        <h1>Sight <span>beta</span></h1>
+
+        <div class="buttons">
+            <button ng-click="show_import_dialog = ! show_import_dialog">Import</button>
+        </div>
+    </header>
+
+    <div id="content">
+        <!-- import dialog -->
+        <div sg-import>
+            <div 
+                sg-dialog title="Import Photographs" 
+                visible="show_import_dialog" 
+                sg-apply="upload()"
+            >
+                <p>
+                    Drag images into the dropzone below or click on it to browse.
+                </p>
+                <br />
+                <div class="drop-zone">
+                    <div ng-repeat="file in files" sg-photo title="{{ file.name }}">
+                    </div>
+
+                    <!-- hidden input -->
+                    <input type="file" accept="image/*" multiple />
+                    <!-- push size -->
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+    
+</body>
+
+
+</html>

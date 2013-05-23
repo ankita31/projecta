@@ -1,0 +1,18 @@
+<!doctype html>
+<html  ng-app="app">
+<head>
+<script src="lib/angular/angular.js"></script>
+<script src="js/default.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <h1>{{greeting}}</h1>
+    <p>Leave a message.</p>
+    <input id="messageInput" ng-model="message" type="text" />
+    <button id="messageButton" ng-click="addMessage(message)">Say "Hello"</button>
+    <div id="greetingOutput">
+        <p ng-repeat="m in messages">{{m}}</p>
+    </div>
+    <script src="js/default.js"></script>
+</body>
+  </html>
+  

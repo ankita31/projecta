@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactPath">
+<head>
+   
+    <title>Contact Path</title>
+     <link rel="stylesheet" href="css/contactapp.css">
+     <link rel="stylesheet" href="css/normalise.css">
+     <link rel="stylesheet" href="css/contact.css">
+     <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+
+
+    <header>
+        <div class="row">
+			<div class="span12">
+            <a href="#"><h1>Contact Us</h1></a>
+        </div>
+        </div>
+    </header>
+    <div class="row"></div>
+    
+    <div class="span12">
+        <div id="smartSearch" ng-controller="SearchCtrl">
+            <!--
+            <input type="search" id="searchBox" placeholder='Search' autocomplete="off" ng-model="search"/>
+                        <ul id="searchResults" ng-show="search.length && (contacts | regex:'name':' +'+search+'|^'+search).length">
+                            <li ng-repeat="contact in contacts | regex:'name':' +'+search+'|^'+search | orderBy:'name' | limitTo:6"><a
+                                    href="#/view/{{contact.id}}">{{contact.name}}</a></li>
+                        </ul>
+                        <p ng-show="(search.length>2) && !(contacts | regex:'name':' +'+search+'|^'+search).length">
+                            A contact named <strong>{{search}}</strong> is not found.
+                        </p>
+                       <div class="row">
+                  <div class="span6 ">
+                        <div class="loader"
+                             ng-show="(search.length<3) && !(contacts | regex:'name':' +'+search+'|^'+search).length"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <hr/>-->
+            
+      </div>
+    
+  
+    <div id="contactsList" class="listContainer" ng-controller="ListCtrl">
+        <dl ng-repeat="contactList in contactLists">
+            <dt>{{contactList.name}}</dt>
+            <dd ng-repeat="contact in contactList.contacts"><a class="cnt"
+                                                               href="#/view/{{contact.id}}">{{contact.name}}</a></dd>
+        </dl>
+    </div>
+    </div>
+    <div class="span 6"></div>
+    <div id="rightViewContainer">
+        <div ng-view></div>
+    </div>
+    </div>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+-->
+<script src="lib/angular/angular.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/filter.js"></script>
+<script src="js/service.js"></script>
+<script src="js/directive.js"></script>
+</body>
+</html>
+<!--http://contactpath.liberlabs.com/#/-->

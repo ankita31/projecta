@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+   	<script src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="js/mobile.js"></script>
+  
+    <script type="text/javascript" src="js/mobile-service.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+   
+</head>
+<body>
+    <div ng-controller="MyCtrl">
+        <ul>
+            <li ng-repeat="task in tasks">
+                <input type="checkbox" ng-model="task.done"
+                       ng-click="updateTask(task)">
+                <span>{{ task.text }}</span>
+                <a ng-click="deleteTask(task)">delete</a>
+            </li>
+        </ul>
+        <form ng-submit="createTask()">
+            <input type="text" ng-model="newTask.text"
+                   placeholder="add new task here">
+            <input type="submit" value="create">
+        </form>
+    </div>
+</body>
+</html>

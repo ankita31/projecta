@@ -1,0 +1,36 @@
+<div class="container">
+				<div class="row">
+					<div class="span12">
+						<legend>
+							EMPLOYEE DETAIL FORM
+							<input ng-model="query" placeholder="Search Employee">
+							</input>
+						</legend>
+					</div>
+				</div>
+				<form name="contactForm" class="form-horizontal">
+					<div class="row">
+						<div class="span 9">
+							<label for="name">Employee Name: </label>
+							<input type="text" ng-model="name" />
+							<label for="empid">Employee Id: </label>
+							<input type="text"ng-model="empid" />
+
+							<label for="email">Email: </label>
+							<input type="text" ng-model="email" id="email" />
+							<h3>Upload your photo</h3>
+							<p>
+								<input id="files-upload" type="file">
+							</p>
+							<div id="file-list"><img id="uploadImg" ng-modal="employee.imageSrc" ng-src="{{imageSrc}}" style="width:200px;"></img>
+							</div>
+														</div>
+							</div>
+							<div class="span 12">
+
+								<button type="button" class="btn" ng-click="insertIntoTable()">
+									Save 
+								</button>
+							</div>
+						</form>
+						</div>

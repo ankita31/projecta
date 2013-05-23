@@ -1,0 +1,16 @@
+<table id="table_id">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Genus</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="plant in plants">
+        <tr>
+            <td>{{plant.Id}}</td>
+            <td><a href="#/plants/{{plant.Id}}">{{plant.Name}}</a></td>
+            <td>{{plant.Genus}}</td>
+        </tr>
+    </tbody>
+</table>

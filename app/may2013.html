@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" ng-app="employee">
+	<head>
+		<meta charset="utf-8">
+		<title>My HTML File</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src="js/may2013.js"></script>
+		
+		<body ng-controller="EmpCtrl">
+			
+			
+			<div class="container">
+										<div class="row">
+											<div class="span12">
+												<legend>
+													EMPLOYEE DETAIL FORM
+												<!--	<input ng-model="query" placeholder="Search Employee">
+												</input>-->
+												</legend>
+											</div>
+										</div>
+										<form name="contactForm" class="form-horizontal">
+											<div class="row">
+												<div class="span 9">
+													<label for="name">Employee Name: </label>
+													<input type="text" ng-model="name" />
+													<label for="empid">Employee Id: </label>
+													<input type="text"ng-model="empid" />
+						
+													<label for="email">Email: </label>
+													<input type="text" ng-model="email" id="email" />
+													<h3>Upload your photo</h3>
+													<p>
+														<input id="files-upload" type="file">
+													</p>
+													<div id="file-list"><img id="uploadImg" ng-modal="employee.imageSrc" ng-src="{{imageSrc}}" style="width:200px;"></img>
+													</div>
+																				</div>
+													</div>
+						
+										<div class="row">
+									<div class="form-actions">
+										<div class="span 12">
+			
+											<button type="button" class="btn" ng-click="insertIntoTable()">
+												Save 
+											</button>
+											<button type="button" class="btn" ng-click="showIntoTable()">
+												Show 
+											</button>
+											
+											<button type="button" class="btn" ng-click="updateTable()">
+																				Update
+																			</button>
+											<button type="button" class="btn" ng-click="dropIntoTable()">
+																				Drop
+																			</button>
+										</div>
+										
+			
+							</form>
+							
+			
+			
+				<table style="width: 100%" border='1'>
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name </th>
+										<th>Employee Id</th>
+										<th>Email</th>
+										<th>Image</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+												<tbody>
+				
+									<tr ng-repeat="val in tableData	|filter:query">
+										<td>{{val.id}}</td>
+										<td>{{val.name}}</td>
+										<td>{{val.empid}}</td>
+										<td>{{val.email}}</td>
+										<td><img ng-src="{{val.image}}" style="width:50px;"></img></td>
+																<td><a ng-click="delIntoRow(val.id)">delete</a></br>
+																	<a ng-click="editIntoTable(val.id)">edit</a></td>
+																				</tr>
+								</tbody>
+				
+							</table>
+							</div>
+				
+
+			<script src="./js/upldimg.js"></script>
+		</body>
+
+</html>

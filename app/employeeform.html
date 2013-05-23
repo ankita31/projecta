@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactPath">
+	<head>
+
+		<title>Employee Information</title>
+		<link rel="stylesheet" href="css/contactapp.css">
+		<link rel="stylesheet" href="css/contact.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+	</head>
+	<body>
+ 
+		<header>
+			<div class="row">
+				<div class="span12">
+					<a href="#"><h1>Employee Form</h1></a>
+				</div>
+			</div>
+		</header>
+		<div class="row"></div>
+<div class="span12">
+        <div id="smartSearch">
+        	 <input type="search" id="searchBox" placeholder='Search' autocomplete="off" ng-model="search"/>
+        </div>
+		<div id="contactsList" class="listContainer" ng-controller="AddCtrl">
+			<dl ng-repeat="val in tableData| filter:search">
+				<dt>
+					{{val.name}}
+				</dt>
+				<dd>
+					<a class="cnt"
+					href="#/display/{{val.id}}">{{val.name}}</a>
+
+				</dd>
+			</dl>
+
+		</div>
+
+		<div class="span 6"></div>
+		<div id="rightViewContainer">
+			<div ng-view></div>
+		</div>
+		</div>
+
+		<script src="lib/angular/angular.js"></script>
+		<script src="js/empform.js"></script>
+
+	</body>
+</html>

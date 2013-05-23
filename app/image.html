@@ -1,0 +1,15 @@
+
+<html lang="en">
+<head>
+	<script src="js/upload.js"></script>
+<script src="lib/angular/angular.js"></script>
+
+</head>
+<div ng-controller='UploadCtrl'>
+  <input type='file' multiple onchange = "angular.element(this).scope().upload(this)" />
+
+  <div ng-repeat='image in images'>
+    {{image.name}}: <img ng-src='{{image.src}}' width='80' height='80' />
+  </div>
+</div>
+</html>

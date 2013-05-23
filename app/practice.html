@@ -1,0 +1,70 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="lib/angular/angular.js"></script>
+    <script src="./js/practice.js"></script>
+</head>
+
+<body ng-controller="FormCtrl">
+<form name="contactForm">
+    <input name="firstName" ng-model="firstName" required placeholder="First Name">
+    <span class="error" ng-show="contactForm.firstName.$error.required">Required!</span><br>
+    <input name="lastName" ng-model="lastName" required placeholder="Last Name">
+    <span class="error" ng-show="contactForm.lastName.$error.required">Required!</span><br>
+    <div>
+	    <span>Gender:</span>
+	    <input ng-model="gender" value="Male" type="radio" name="gender">
+	    <input ng-model="gender" value="Female" type="radio" name="gender">
+    </div>
+    
+	<h3>Choose file(s)</h3>
+	<p><input id="files-upload" type="file"></p>
+    <div id="file-list"><img id="uploadImg" ng-modal="imageSrc" ng-src="{{imageSrc}}" style="width:200px;"></img></div>
+<input type="button" ng-click="insertRecords()" value="Insert Records">
+    <input type="button" ng-click="dropTable()" value="Drop Table">
+    <input type="button" ng-click="getContacts()" value="Show Contacts">
+    <input type="button" ng-click="updateContact()" value="Update Contacts">
+</form>
+ <div class="input-append">
+                <input type="text" ng-model="query" ng-change="search()"  placeholder="Search">
+            <span class="add-on"><i class="icon-search"></i></span>
+            </div>
+             <select ng-model='limit'>
+            <option value='3'>Show 3 per page</option>
+            <option value='6'>Show 6 per page</option>
+           
+          </select>
+            <table class="table table-striped table-condensed table-hover">
+
+
+	<thead>
+		 <th class="id">Id&nbsp;<a ng-click="sort_by('id')"><i class="icon-sort"></i></a></th>
+		  <th class="firstName">Name&nbsp;<a ng-click="sort_by('firstName')"><i class="icon-sort"></i></a></th>
+		   <th class="gender">Gender&nbsp;<a ng-click="sort_by('gender')"><i class="icon-sort"></i></a></th>
+		  
+		<th>Image</th>
+		<th></th>
+	</thead>
+	
+	
+	
+	
+	<tbody>
+		<tr style="width: 100%" ng-repeat="data in tableData|limitTo:limit">
+			<td>{{data.id}}</td>
+			<td>{{data.firstName}} {{data.lastName}}</td>
+			<td>{{data.gender}}</td>
+			
+			<td><img ng-src="{{data.image}}" style="width:50px;"></img></td>
+			<td>
+			    <input type="button" ng-click="editContact(data.id)" value="Edit Contact">
+			    <input type="button" ng-click="deleteContact(data.id)" value="Delete Contact">
+			     <li ng-class="navClass('view')"><a href='#/view'>View</a></li>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<script src="./js/upldimg.js"></script>
+</body>
+</html>
+https://coderwall.com/p/r_bvhg

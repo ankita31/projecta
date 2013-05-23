@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactPath">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+		<script src="../lib/angular/angular.js"></script>
+		<script src="../js/practicecntct.js"></script>
+		
+		<body ng-controller="AddCtrl">
+			<table class="table table-bordered">
+				<thead>
+				<tr>
+				<th>ID</th>
+				<th>Name </th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				<tr ng-repeat="val in tableData">
+				<td>{{val.id}}</td>
+				<td>{{val.name}}</td>
+				<td>{{val.phone}}</td>
+				<td>{{val.email}}</td>
+
+				<td><a ng-click="deleteRecord(val.id)">delete</a></br>
+				<a ng-click="editContact(val.id)">edit</a></td>
+				</tr>
+				</tbody>
+
+				</table>
+				</body>
+				</html>

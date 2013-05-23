@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app="Application">
+	<head>
+		
+		<title>My HTML File</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src="js/login.js"></script>
+       <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular-resource.min.js"></script>
+        <script src="js/ui-bootstrap.min.js"></script>
+
+       </head>
+    <body>
+         <body>
+        <nav ng-controller="NavController" ng-include="'views/nav.html'"></nav>
+        <section ng-controller="AlertsController" ng-include="'views/alerts.html'"></section>
+        <section ng-view></section>
+    </body> 
+</body>
+</html>

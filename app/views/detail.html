@@ -1,0 +1,21 @@
+<table class="table table-bordered" ng-controller ="DetailCtrl">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th> First Name       </th>
+        <th>Last NAme</th>
+        <th> Password</th>
+        <th> Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="val in data">
+            <td>{{val.id}}</td>
+            <td>{{val.firstName}}</td>
+             <td>{{val.lastName}}</td>
+             <td>{{val.gender}}</td>            
+        </tr>
+    </tbody>
+    </table>

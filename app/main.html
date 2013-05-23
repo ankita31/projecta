@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="contactPath">
+	<head>
+		<meta charset="utf-8">
+		<title>My HTML File</title>
+
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+
+	</head>
+	<body>
+		<div ng-view></div>
+
+		<div ng-controller="AddCtrl">
+			<table class="table">
+				<div class="row">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name </th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="val in tableData">
+							<td>{{val.id}}</td>
+							<td>{{val.name}}</td>
+							<td>{{val.phone}}</td>
+							<td>{{val.email}}</td>
+							<td><a class="btn" ng-click="editContact(val.id)">Edit</a>
+								<a class="btn btn-info pull-righ " href="#/display/{{id}}">view</a>
+							</br><a  class="btn btn-danger"
+							ng-click="deleteRecord(val.id)"> delete </a>
+							
+							</td>
+						</tr>
+					</tbody>
+				</div>
+			</table>
+		</div>
+
+		<script src="js/practicecntct.js"></script>
+		</div>
+	</body>
+</html>
+<!--<a class="btn" ng-click="editContact(val.id)">Edit</a>-->
